@@ -5,10 +5,11 @@ import { ListPage } from '../pages/ListPage';
 import { MainLayout } from '../components';
 import { ErrorPage } from '../pages/ErrorPage';
 import { usersLoader } from './router-loader';
+import { HomePage } from '../pages/HomePage';
 export const MainRouter = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
+    element: <HomePage />,
   },
   {
     path: '/main',
