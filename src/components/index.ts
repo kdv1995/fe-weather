@@ -1,5 +1,11 @@
+import { Container } from './Container';
 import { Header } from './Header';
 import { MainLayout } from './Layout/MainLayout';
-import { WeatherInfo } from './Weather/WeatherInfo';
+import { Widget } from './Weather/Widget';
+import { Search, SearchWithDebounce } from './Search';
+import { Section } from './Section';
+import { Button } from './Button';
+import { Footer } from './Footer';
+import { NotFoundPopup } from './NotFound';
 
-export { WeatherInfo, Header, MainLayout };
+export { Header, MainLayout, Widget, Container, Search, SearchWithDebounce, Section, Button , Footer, NotFoundPopup};

@@ -1,30 +1,79 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { useContext, useEffect, useState } from 'react';
+import {
+  Button,
+  NotFoundPopup,
+  Search,
+  SearchWithDebounce,
+  Section,
+  Widget,
+} from '../components';
+import { API } from '../constants';
+import { IGeneralWeather } from '../components/Weather/weather.interface';
+import { WeatherContext } from '../context/WeatherContext';
+import { defaultWeatherObject } from '../constants/defaultWeatherObject';
 
 export const MainPage = () => {
-  //const [firstInput, firstInputSet] = useState('');
-  //const [secondInput, secondInputSet] = useState('');
+  const { setWeatherType } = useContext(WeatherContext);
+  const [firstInput, setFirstInput] = useState('');
+  const [secondInput, setSecondInput] = useState('');
+  const [weatherData, setWeatherData] =
+    useState<IGeneralWeather>(defaultWeatherObject);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('weatherData')) {
+      setWeatherData(JSON.parse(localStorage.getItem('weatherData') as any));
+    }
+  }, []);
+
+  const handleFirstInputChange = (value: string) => {
+    setFirstInput(value);
+  };
+
+  const handleSecondInputChange = (value: string) => {
+    setSecondInput(value);
+  };
+
+  const handleSearch = async () => {
+    await fetch(`${API.url}/weather/city?name=${firstInput}`)
+      .then((data) => data.json())
+      .then((data) => {
+        const weatherType = data.weather[0].main;
+        setWeatherType(weatherType);
+        setWeatherData(data);
+        localStorage.setItem('weatherData', JSON.stringify(data));
+      })
+      .catch(() => {
+        setTimeout(() => {
+          setIsPopupVisible(true);
+        }, 500);
+      });
+  };
+
   return (
     <>
-      <Typography variant="h2">Attention</Typography>
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="h5" component="p">
-          This is a simple weather app that uses OpenWeatherMap API to get the
-          weather data. Search will be implemented with debounce and also search
-          of the city will be implemented with onClick event of button.
-        </Typography>
-      </Box>
-      <Box sx={{ mt: 5, display: 'flex', gap: 15 }}>
-        <Box sx={{ mt: 2 }}>
-          <TextField id="filled-basic" label="City name" variant="filled" />
-        </Box>
-        <Box>
-          <Box sx={{ mt: 2, display: 'flex', gap: 5 }}>
-            <TextField id="filled-basic" label="City name" variant="filled" />
-
-            <Button variant="contained">Find a city weather</Button>
-          </Box>
-        </Box>
-      </Box>
+      <Section title="Weather by city">
+        <div className="mt-10 flex gap-10">
+          <div className="flex gap-5">
+            <Search value={firstInput} onChange={handleFirstInputChange} />
+            <Button title="Search by city" onClick={handleSearch} />
+          </div>
+          <SearchWithDebounce
+            value={secondInput}
+            onChange={handleSecondInputChange}
+            delay={500}
+          />
+        </div>
+        <Widget widgetData={weatherData} />
+        <NotFoundPopup
+          reason="The data on the city is not found. Please try again."
+          isVisible={isPopupVisible}
+          onClose={handleClosePopup}
+        />
+      </Section>
     </>
   );
 };
