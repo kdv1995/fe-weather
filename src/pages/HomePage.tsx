@@ -6,7 +6,7 @@ export const HomePage = () => {
   return (
     <Container>
       <Header />
-      <Section title="This is a welcome page">
+      <Section title="">
         <div className="min-h-screen flex items-center justify-center text-white">
           <div className="p-8 rounded-lg shadow-md max-w-md mx-auto">
             <h1 className="text-3xl font-bold  mb-4">
