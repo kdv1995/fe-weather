@@ -55,7 +55,7 @@ export const MainPage = () => {
         <div className="mt-10 flex gap-10">
           <div className="flex gap-5">
             <Search value={query} onChange={handleFirstInputChange} />
-            <Button title="Search by city" onClick={handleSearch} />
+            <Button title="Search ..." onClick={handleSearch} />
           </div>
         </div>
         <Widget widgetData={weatherData} />

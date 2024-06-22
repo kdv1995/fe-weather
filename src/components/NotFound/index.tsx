@@ -28,4 +28,3 @@ export const NotFoundPopup: FC<NotFoundPopupProps> = ({
     </div>
   );
 };
-

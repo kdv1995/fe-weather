@@ -7,13 +7,10 @@ export const HomePage = () => {
     <Container>
       <Header />
       <Section title="">
-        <div className="min-h-screen flex items-center justify-center text-white">
+        <div className="flex items-center justify-center text-white">
           <div className="p-8 rounded-lg shadow-md max-w-md mx-auto">
-            <h1 className="text-3xl font-bold  mb-4">
-              Welcome to WeatherApp
-            </h1>
-            <p className="text-white mb-6">
-              Discover the latest weather updates at your fingertips. Whether
+            <h1 className="text-3xl font-bold  mb-4">Welcome to WeatherApp</h1>
+            <p className="text-white mb-6"> Discover the latest weather updates at your fingertips. Whether
               you're planning your day or just curious about the current weather
               conditions, WeatherWise has got you covered. Stay informed with
               accurate and up-to-date weather information tailored just for you.
