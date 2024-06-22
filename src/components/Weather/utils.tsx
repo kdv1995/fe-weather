@@ -1,9 +1,9 @@
-import cloudy from '../../../public/weather-icons/cloudy.png';
-import rainy from '../../../public/weather-icons/rainy.png';
-import sunny from '../../../public/weather-icons/sunny.png';
-import clear from '../../../public/weather-icons/clear.png';
-import thunderstorm from '../../../public/weather-icons/thunderstorm.jpg';
-import drizzle from '../../../public/weather-icons/drizzle.jpeg';
+import cloudy from '/weather-icons/cloudy.png';
+import rainy from '/weather-icons/rainy.png';
+import sunny from '/weather-icons/sunny.png';
+import clear from '/weather-icons/clear.png';
+import thunderstorm from '/weather-icons/thunderstorm.jpg';
+import drizzle from '/weather-icons/drizzle.jpeg';
 export const getGradientClass = (weatherType: string) => {
   switch (weatherType) {
     case 'Clear':

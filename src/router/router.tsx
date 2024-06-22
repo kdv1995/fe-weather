@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { APP_ROUTES } from './routes';
 import { MainPage } from '../pages/MainPage';
 import { ListPage } from '../pages/ListPage';
@@ -6,10 +6,6 @@ import { MainLayout } from '../components';
 import { ErrorPage } from '../pages/ErrorPage';
 import { usersLoader } from './router-loader';
 export const MainRouter = createBrowserRouter([
-  {
-    path: '/',
-    element: <Navigate to="/main" replace />,
-  },
   {
     path: '/main',
     element: <MainLayout />,
