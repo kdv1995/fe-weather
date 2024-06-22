@@ -7,5 +7,6 @@ import { Section } from './Section';
 import { Button } from './Button';
 import { Footer } from './Footer';
 import { NotFoundPopup } from './NotFound';
+import { Table } from './Table';
 
-export { Header, MainLayout, Widget, Container, Search, SearchWithDebounce, Section, Button , Footer, NotFoundPopup};
+export { Header, MainLayout, Widget, Container, Search, SearchWithDebounce, Section, Button , Footer, NotFoundPopup, Table};

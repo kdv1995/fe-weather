@@ -47,3 +47,8 @@ export const getWeatherIcon = (weatherType: string): string => {
 export const formatFromKelvinToCelsius = (kalvin: number): number => {
   return kalvin - 273.15;
 };
+
+export const convertUnixTime = (unixTime: number): string => {
+  const date = new Date(unixTime * 1000);
+  return date.toLocaleString();
+};
