@@ -7,6 +7,10 @@ import { ErrorPage } from '../pages/ErrorPage';
 import { usersLoader } from './router-loader';
 export const MainRouter = createBrowserRouter([
   {
+    path: '/',
+    element: <MainLayout />,
+  },
+  {
     path: '/main',
     element: <MainLayout />,
     errorElement: <ErrorPage />,
