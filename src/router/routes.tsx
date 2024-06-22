@@ -8,6 +8,11 @@ interface INavigationItem {
 }
 
 export const APP_ROUTES: { [key: string]: INavigationItem } = {
+  home: {
+    link: '/',
+    label: 'Home',
+    icon: <FaHome size={30} />,
+  },
   main: {
     link: '/main',
     label: 'Main',
