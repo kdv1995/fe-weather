@@ -12,8 +12,17 @@ export const Header = () => {
         <ul className="flex gap-10">
           {Object.keys(APP_ROUTES).map((key) => {
             return (
-              <li key={key}>
-                <NavLink to={APP_ROUTES[key].link}>
+              <li key={key} className="px-4 py-2">
+                <NavLink
+                  to={APP_ROUTES[key].link}
+                  className={({ isActive }) => {
+                    const defaultClasses = 'rounded px-4 py-1';
+                    const activeClasses = 'bg-white';
+                    return isActive
+                      ? `${defaultClasses} ${activeClasses}`
+                      : defaultClasses;
+                  }}
+                >
                   {APP_ROUTES[key].label}
                 </NavLink>
               </li>
