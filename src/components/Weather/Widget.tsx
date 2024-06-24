@@ -14,7 +14,7 @@ export const Widget: FC<WidgetProps> = ({ widgetData }) => {
 
   return (
     <div
-      className={`${getGradientClass(weatherType)} max-w-xl flex items-center justify-evenly text-white rounded-lg mt-10 py-5`}
+      className={`${getGradientClass(weatherType)} max-w-xl flex items-center text-white rounded-lg mt-10 py-5 border-shadow-custom`}
     >
       <div className="flex">
         <div className="border-right border-r-2 border-r-white px-5">
