@@ -1,5 +1,9 @@
 import { FC, useContext } from 'react';
-import { formatFromKelvinToCelsius, getGradientClass, getWeatherIcon } from './utils';
+import {
+  formatFromKelvinToCelsius,
+  getGradientClass,
+  getWeatherIcon,
+} from './utils';
 import { IGeneralWeather } from './weather.interface';
 import { WeatherContext } from '../../context/WeatherContext';
 
@@ -30,7 +34,7 @@ export const Widget: FC<WidgetProps> = ({ widgetData }) => {
         <div className="px-5">
           <h1 className="text-4xl">{name}</h1>
           <p className="mt-2">Day of week: {dayOfWeek}</p>
-          <p>°C: {temperatureInCelsius.toFixed(2)}</p>
+          <p>°C: {temperatureInCelsius.toFixed(2)} </p>
           <p>Temperature in Kelvin: {main.temp}</p>
           <p>Humidity: {main.humidity}</p>
         </div>
